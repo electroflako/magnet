@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Grotesk", ui-monospace, monospace;
+  --color-ink: #0a0a09;
+  --color-coal: #131311;
+  --color-bone: #f1eee7;
+  --color-volt: #d9ff3f;
+  --color-smoke: #83837a;
+}
+
+html {
+  background: var(--color-ink);
+  scrollbar-width: thin;
+  scrollbar-color: #2c2c28 var(--color-ink);
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-volt);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: #2c2c28;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-volt);
+}
+
+@media (pointer: fine) {
+  html, body, a, button, [data-hover] {
+    cursor: none !important;
+  }
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--color-bone) 80%, transparent);
+}
+
+.text-outline-volt {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-volt);
+}
+
+@media (max-width: 768px) {
+  .text-outline, .text-outline-volt {
+    -webkit-text-stroke-width: 1px;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes rot360 {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slower {
+  animation: rot360 16s linear infinite;
+}
